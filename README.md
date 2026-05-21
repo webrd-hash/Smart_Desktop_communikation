@@ -194,3 +194,8 @@ Der SD-Pin ist ebenfalls auf GND gelegt, sodass der Verstärker dauerhaft aktivi
 
 Für die Drachtlose Kommunikation wird das RN171 WLAN-Modul verwendet. Das Modul bietet eine integriete WLAN - schnittstelle und kann über UART einfach mit dem STM32 verbunden werden 
 Die erforderliche Beschaltung und Ansteuerung wurde auf Basis Herstellerdokumentation Umgesetzt . da das Modul ausschließlich für die Netzwerkkommnikation genutzt wird , bleibt die zentral steuerung vollständig bein stm32
+#Quelle
+123microcontroller.com
+diode.com
+https://www.snapeda.com/parts/RN-171/Microchip+Technology/view-part/?ref=snap
+https://www.snapeda.com/parts/INMP441/TDK/view-part/?ref=snap
