@@ -23,7 +23,7 @@ Die implementierte Schaltung umfasst:
 • Taktversorgung durch externen Oszillator  
 • Verbindung zu den Peripherie-Komponenten  
 
-Der STM32 übernimmt die zentrale Steuerung des Systems. Das vom INMP441 aufgenommene Audiosignal wird an den Mikrocontroller übertragen und dort verarbeitet. Die Audiodaten werden anschließend über UART an den ESP32-WROOM weitergegeben, welcher als WLAN-Schnittstelle dient und die Daten an das Netzwerk überträgt.
+Der STM32 übernimmt die zentrale Steuerung des Systems. Das vom INMP441 aufgenommene Audiosignal wird an den Mikrocontroller übertragen und dort verarbeitet. Die Audiodaten werden anschließend über UART an den RN 171  weitergegeben, welcher als WLAN-Schnittstelle dient und die Daten an das Netzwerk überträgt.
 
 Für die Audioausgabe wird der PAM8302AAY Class-D Audioverstärker eingesetzt. Dieser verstärkt das Ausgangssignal des Systems und treibt den angeschlossenen 8 Ω 50 mm Lautsprecher (Visaton K 50) zur Wiedergabe des Audiosignals an.
 
@@ -38,8 +38,6 @@ Ein Spannungsregler stellt eine stabile 3,3 V Versorgung für alle digitalen Kom
 ### Mikrocontroller
 
 Als zentrale Steuereinheit wird der STM32 eingesetzt. Dieser bietet eine zuverlässige Echtzeitverarbeitung, was besonders für die Audioverarbeitung im System wichtig ist. Zusätzlich passt er gut zu den im Studium bereits gesammelten Erfahrungen im Umgang mit STM32-basierten Systemen.
-
-Der ESP32 wird nicht als Hauptcontroller verwendet, sondern ausschließlich als WLAN-Kommunikationsmodul zur externen Datenübertragung. Aus Erfahrung und aus bereits bekannten Projekten ist der ESP32 häufig als zuverlässige WLAN-Schnittstelle im Einsatz und ermöglicht eine einfache drahtlose Übertragung. Daher wurde er gezielt nur für diesen Zweck ausgewählt.
 
 
 
@@ -191,3 +189,8 @@ Der Verstärker wird mit 3,3 V versorgt. Zur Stabilisierung der Versorgungsspann
 Das Audiosignal wird über einen 10 nF Koppelkondensator an den Eingang IN+ geführt, um Gleichspannungsanteile zu blockieren. IN− ist mit GND verbunden, wodurch der Verstärker im Single-Ended-Betrieb arbeitet.
 
 Der SD-Pin ist ebenfalls auf GND gelegt, sodass der Verstärker dauerhaft aktiviert ist. Der Ausgang OUT+ und OUT− ist direkt mit dem Lautsprecher verbunden und arbeitet im differentiellen Betrieb für höhere Leistung und bessere Störsicherheit.
+
+### WLAN -schnittstelle 
+
+Für die Drachtlose Kommunikation wird das RN171 WLAN-Modul verwendet. Das Modul bietet eine integriete WLAN - schnittstelle und kann über UART einfach mit dem STM32 verbunden werden 
+Die erforderliche Beschaltung und Ansteuerung wurde auf Basis Herstellerdokumentation Umgesetzt . da das Modul ausschließlich für die Netzwerkkommnikation genutzt wird , bleibt die zentral steuerung vollständig bein stm32
